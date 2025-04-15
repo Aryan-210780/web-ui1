@@ -1195,8 +1195,9 @@ def main():
     args = parser.parse_args()
 
     demo = create_ui(theme_name=args.theme)
-    demo.launch(server_name=args.ip, server_port=args.port)
-
+    import os
+port = int(os.getenv("PORT", 7860))  # Render ka PORT ya default 7860
+demo.launch(server_name="0.0.0.0", server_port=port, root_path="/")
 
 if __name__ == '__main__':
     main()
