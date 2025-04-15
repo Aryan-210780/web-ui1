@@ -1189,15 +1189,13 @@ def create_ui(theme_name="Ocean"):
 
 def main():
     parser = argparse.ArgumentParser(description="Gradio UI for Browser Agent")
-    parser.add_argument("--ip", type=str, default="127.0.0.1", help="IP address to bind to")
-    parser.add_argument("--port", type=int, default=7788, help="Port to listen on")
     parser.add_argument("--theme", type=str, default="Ocean", choices=theme_map.keys(), help="Theme to use for the UI")
     args = parser.parse_args()
 
     demo = create_ui(theme_name=args.theme)
     import os
-port = int(os.getenv("PORT", 7860))  # Render ka PORT ya default 7860
-demo.launch(server_name="0.0.0.0", server_port=port, root_path="/")
+    port = int(os.getenv("PORT", 7860))  # Render ka PORT ya default 7860
+    demo.launch(server_name="0.0.0.0", server_port=port, root_path="/")
 
 if __name__ == '__main__':
     main()
