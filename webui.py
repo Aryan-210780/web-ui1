@@ -1195,6 +1195,7 @@ def main():
     demo = create_ui(theme_name=args.theme)
     import os
     port = int(os.getenv("PORT", 7860))  # Render ka PORT ya default 7860
+    print(f"Starting Gradio on port {port}")
     demo.launch(server_name="0.0.0.0", server_port=port, root_path="/")
 
 if __name__ == '__main__':
